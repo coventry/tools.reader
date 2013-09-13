@@ -597,7 +597,7 @@
               (reader-error rdr "Unexpected number of constructor arguments to " (str class)
                             ": got" (count entries))
               (if (== (count (.getParameterTypes ^Constructor (aget all-ctors i)))
-                      ctors-num)
+                      (count entries))
                 (Reflector/invokeConstructor class entries)
                 (recur (inc i)))))
           :extended
